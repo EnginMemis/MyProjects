@@ -1,0 +1,22 @@
+compileAndRun: link run
+
+link: main checkBoard displayBoard solvedSudokuFile solveSudoku
+	gcc ./lib/main.o ./lib/checkBoard.o ./lib/displayBoard.o ./lib/solvedSudokuFile.o ./lib/solveSudoku.o -o ./bin/sudokuSolver.exe
+
+main:
+	gcc -I "./include" -c ./src/main.c -o ./lib/main.o
+
+checkBoard:
+	gcc -c ./src/checkBoard.c -o ./lib/checkBoard.o
+	
+displayBoard:
+	gcc -c ./src/displayBoard.c -o ./lib/displayBoard.o
+	
+solvedSudokuFile:
+	gcc -c ./src/solvedSudokuFile.c -o ./lib/solvedSudokuFile.o
+	
+solveSudoku:
+	gcc -c ./src/solveSudoku.c -o ./lib/solveSudoku.o
+	
+run:
+	./bin/sudokuSolver.exe
